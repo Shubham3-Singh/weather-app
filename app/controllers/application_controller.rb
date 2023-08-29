@@ -1,0 +1,18 @@
+class ApplicationController < ActionController::Base
+  helper_method :current_user
+
+  def current_user
+    @current_user ||= UserAuthenticate.find_by(id: session[:user_id])
+  end
+
+  def authenticate_admin
+    @current_user ||= UserAuthenticate.find_by(id: session[:user_id])
+    unless (@current_user.present?)
+      redirect_to '/login'
+    end
+  end
+
+  def require_user
+    redirect_to login_path unless current_user
+  end
+end

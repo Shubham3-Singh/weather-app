@@ -1,0 +1,58 @@
+<div>
+<h1>Weather Information</h1>
+<%= form_tag("/weather", method: :get) do %>
+  <%= select_tag :city_names, options_for_select(["Mumbai", "Pune", "Nashik", "Lonavala"], params[:city_names]), prompt: "Select City", class: "get_city" %>
+  <%= submit_tag "Submit" %>
+<% end %>
+<% if @city.present? %>
+  <h2>City: <%= @city %></h2>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Minimum Temperature
+        </th>
+        <th>
+          Maximum Temperature
+        </th>
+        <th>
+          Humidity
+        </th>
+        <th>
+          Weather Type
+        </th>
+        <th>
+          Weather Description
+        </th>
+        <th>
+          Wind Speed
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= @temp_min %> °C
+        </td>
+        <td>
+          <%= @temp_max %> °C
+        </td>
+        <td>
+          <%= @humidity %> %
+        </td>
+        <td>
+          <%= @weather_main %>
+        </td>
+        <td>
+          <%= @weather_desc %>
+        </td>
+        <td>
+          <%= @wind_speed %> km/h
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br/>
+  <%= link_to "Logout", logout_path, class: "btn" %>
+<% end %>
+</div>
