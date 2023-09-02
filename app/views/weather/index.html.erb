@@ -1,7 +1,7 @@
 <div>
 <h1>Weather Information</h1>
 <%= form_tag("/weather", method: :get) do %>
-  <%= select_tag :city_names, options_for_select(["Mumbai", "Pune", "Nashik", "Lonavala"], params[:city_names]), prompt: "Select City", class: "get_city" %>
+  <%= select_tag :city_names, options_for_select(["AHMEDABAD", "BANGALORE", "LONAVALA", "MUMBAI", "NASIK", "PUNE"], params[:city_names]), prompt: "Select City", class: "get_city" %>
   <%= submit_tag "Submit" %>
 <% end %>
 <% if @city.present? %>
@@ -53,6 +53,7 @@
     </tbody>
   </table>
   <br/>
-  <%= link_to "Logout", logout_path, class: "btn" %>
 <% end %>
+<br/>
+<%= link_to "Logout", logout_path, class: "btn" %>
 </div>

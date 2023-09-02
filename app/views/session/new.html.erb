@@ -10,9 +10,8 @@
       <%= form.label :password %>
       <%= form.password_field :password %>
     </div>
-    <br/>
-    <br/>
+    <p class="message"><%= @hello %></p>
     <%= form.submit 'Login' %>
-    <%= form.submit 'Sign Up' %>
+    <%= link_to 'Sign Up', root_path, class: "button" %>
   <% end %>
 </div>

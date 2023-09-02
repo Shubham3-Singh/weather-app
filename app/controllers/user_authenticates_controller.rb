@@ -16,7 +16,7 @@ class UserAuthenticatesController < ApplicationController
       session[:user_id] = @user.id
       redirect_to login_path, notice: 'Registration successful'
     else
-      render :new
+      render 'new'
     end
   end
 end
