@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get 'weather/index'
   root 'user_authenticates#new'
 
-  get '/signup', to: 'user_authenticates#new'
+  # get '/signup', to: 'user_authenticates#new'
 
   get '/login', to: 'session#new'
-  post '/login', to: 'session#create'
+  get '/sign_in', to: 'session#sign_in'
 
   get '/logout', to: 'session#logout'
   # delete 'logout', to: 'session#logout', as: 'logout'

@@ -1,17 +1,19 @@
+
+
 <div class="commonForm">
   <h1>Log In</h1>
-  <%= form_with(model: @user , method: :post ) do |form| %>
+  <%= form_tag('/sign_in', method: :get ) do %>
     <div>
-      <%= form.label :email %>
-      <%= form.email_field :email %>
+      <%= label_tag :email %>
+      <%= email_field_tag :email %>
     </div>
     <br/>
     <div>
-      <%= form.label :password %>
-      <%= form.password_field :password %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
     </div>
     <p class="message"><%= @hello %></p>
-    <%= form.submit 'Login' %>
+    <%= submit_tag 'Login' %>
     <%= link_to 'Sign Up', root_path, class: "button" %>
   <% end %>
 </div>
